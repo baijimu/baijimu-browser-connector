@@ -1,0 +1,6 @@
+/target/
+/bin/
+*.log
+.DS_Store
+.env
+/assets/icon-source.png
