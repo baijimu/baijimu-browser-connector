@@ -76,38 +76,6 @@
     },
     "additionalProperties": false
   },
-  "remoteCapabilities": [
-    {
-      "name": "browser.profile.manage",
-      "risk": "high",
-      "description": "创建和修改工作区隔离的持久浏览器 Profile 及其网站授权范围。"
-    },
-    {
-      "name": "browser.session.manage",
-      "risk": "medium",
-      "description": "在本机启动、列出和关闭使用持久登录态的浏览器会话。"
-    },
-    {
-      "name": "browser.page.read",
-      "risk": "medium",
-      "description": "读取当前页面 URL、标题、可见元素结构和截图，可能包含用户已登录页面中的敏感信息。"
-    },
-    {
-      "name": "browser.page.navigate",
-      "risk": "medium",
-      "description": "在 Profile 显式授权的公网域名范围内导航页面。"
-    },
-    {
-      "name": "browser.page.interact",
-      "risk": "high",
-      "description": "点击页面元素、输入文本和发送有限按键，可能触发发布、提交、购买或其他外部操作。"
-    },
-    {
-      "name": "browser.file.upload",
-      "risk": "high",
-      "description": "把管理界面中显式授权目录内的本地文件选择到网页文件输入控件。"
-    }
-  ],
   "transport": {
     "type": "http",
     "baseUrl": "http://127.0.0.1:18121"

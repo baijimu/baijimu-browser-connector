@@ -42,10 +42,7 @@ test("remote surface is typed and excludes raw execution", () => {
   assert.equal(upload.input_schema.properties.paths.maxItems, 10);
 });
 
-test("high-risk effects are represented by explicit capabilities", () => {
-  const capabilities = new Map(manifest.remoteCapabilities.map((item) => [item.name, item.risk]));
-  assert.equal(capabilities.get("browser.profile.manage"), "high");
-  assert.equal(capabilities.get("browser.page.interact"), "high");
-  assert.equal(capabilities.get("browser.file.upload"), "high");
+test("remote declarations come from methods and events", () => {
+  assert.ok(Array.isArray(manifest.events));
+  assert.equal(Object.hasOwn(manifest, "remoteCapabilities"), false);
 });
-

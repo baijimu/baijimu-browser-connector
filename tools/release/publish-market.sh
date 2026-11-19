@@ -70,10 +70,9 @@ market_manifest="$(jq -nc   --argjson connector "$connector_manifest"   --arg ma
       {platform:"linux",arch:"x86_64",source:$linux_source,checksum:$linux_sha}
     ]
   })')"
-capabilities="$(printf '%s' "$connector_manifest" | jq -c '[.remoteCapabilities[]?.name]')"
 publish_body="$work_dir/version.json"
-jq -n   --arg version "$version"   --arg source "${sources[macos]}"   --arg repo "$source_repo"   --arg revision "v$version"   --arg checksum "${checksums[macos]}"   --argjson capabilities "$capabilities"   --argjson manifest "$market_manifest"   '{version:$version,sourceType:"https",source:$source,repo:$repo,revision:$revision,
-    checksum:$checksum,capabilities:$capabilities,manifest:$manifest}' > "$publish_body"
+jq -n   --arg version "$version"   --arg source "${sources[macos]}"   --arg repo "$source_repo"   --arg revision "v$version"   --arg checksum "${checksums[macos]}"   --argjson manifest "$market_manifest"   '{version:$version,sourceType:"https",source:$source,repo:$repo,revision:$revision,
+    checksum:$checksum,manifest:$manifest}' > "$publish_body"
 
 auth_file="$work_dir/baijimu-auth.json"
 BAIJIMU_AUTH_FILE="$auth_file" "$BAIJIMU_CLI" auth login   --token "$LOCAL_APP_MARKET_PUBLISH_TOKEN"   --workspace-id "$LOCAL_APP_OWNER_WORKSPACE_ID"   --no-browser --json >/dev/null
